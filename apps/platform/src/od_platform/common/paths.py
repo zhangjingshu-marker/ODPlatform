@@ -225,7 +225,7 @@ if __name__ == "__main__":
     for d in get_dirs_to_initialize():
         print(f"  - {d.relative_to(ROOT_DIR)}")
 
-        
+
 DATASET_CONFIGS_DIR: Path = CONFIGS_DIR / "datasets"   # 数据集 yaml 的家(Ultralytics 约定)
 
 def raw_dataset_root(name: str) -> Path:
@@ -236,3 +236,9 @@ def dataset_processed_dir(name: str) -> Path:
 
 def dataset_yaml_path(name: str) -> Path:
     return DATASET_CONFIGS_DIR / f"{name}.yaml"
+
+VALIDATION_RUNS_DIR: Path = RUNS_DIR / "data_validation"   # 质检报告的家(按需创建,不进 init 清单)
+
+
+def validation_run_dir(run_id: str) -> Path:
+    return VALIDATION_RUNS_DIR / run_id
